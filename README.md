@@ -33,7 +33,7 @@ Abaixo aponto as bibliotecas utilizadas e o motivo da escolha.
   > Em projetos pessoais utilizo bastante `Fetch API`, mas em projetos react vejo muito as pessoas utilizando `axios` então decidi por utilizá-lo.
 
 ## IDE
-* Visual Studio Code
+* Visual Studio Code 1.96.3
 * Puglin Codeium:
   > Ferramenta aceleradora de desenvolvimento, IA Generativa similar ao Copilot do Github.
 
