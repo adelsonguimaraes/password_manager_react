@@ -14,7 +14,7 @@ const SearchBar = ({ filterText, onFilterTextChange, onSearch, onAddClick }: Sea
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 4 }}>
             <TextField
                 fullWidth
-                label="Filtrar por nome ou usuário"
+                label="Filter by name"
                 value={filterText}
                 onChange={(e) => onFilterTextChange(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && onSearch()}

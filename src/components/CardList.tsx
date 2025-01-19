@@ -45,13 +45,10 @@ const CardList = ({ cards, onCardClick, onDeleteClick }: CardListProps) => {
 
                     <CardActions sx={{ display: 'flex', justifyContent: 'flex-end' }}>
                         <IconButton onClick={(e) => {
-                            e.preventDefault();
+                            e.stopPropagation();
                             onDeleteClick(card);
                         }}>
                             <DeleteIcon />
-                        </IconButton>
-                        <IconButton>
-                            <LockIcon />
                         </IconButton>
                     </CardActions>
                 </Card>
