@@ -1,3 +1,12 @@
+# Hooks
+Diretório para organizar arquivos de controle de `Hooks`, 
+
+Hooks são ferramentas do `react` para controlar estados de variáveis, úteis para quando precisamos atualizar informações em memória que precisão ser exibidas na tela.
+
+No exemplo abaixo temos o arquivo `useCards.ts` que controla o carregando, filtro e remoção dos cartões da tela, muito parecido com o conceito de `camada de controller` onde o script era separado da interface.
+
+Isso claramente separa as responsabilidade e deixa o código mais limpo e organizado.
+```ts
 import { useState, useEffect } from 'react';
 import { fetchCards, deleteCard } from '../services/api';
 import { Card } from '../types';
@@ -39,3 +48,5 @@ export const useCards = (filterText: string = '') => {
 
     return { cards, loading, error, loadCards, handleDeleteCard };
 };
+
+```
