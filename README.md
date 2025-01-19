@@ -1,50 +1,60 @@
-# React + TypeScript + Vite
+# Password Manager APP
+Web app React para o sistema de gerenciamento de senhas.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Documentação
+Clique no link abaixo para ter acesso a documentação detalhada.
 
-Currently, two official plugins are available:
+[> Acesso a documentação <](docs/Document.MD)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Funcionalinalidades
+* Listar todos os cartões de senhas.
+* Filtar cartão por nome.
+* Cadastro.
+* Atualização.
+* Exclusão.
 
-## Expanding the ESLint configuration
+## Tecnologias
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+* WSL2
+* Ubuntu 20.04.3 LTS
+* NPM/NPX 10.9.0
+* React 18.3.1
 
-- Configure the top-level `parserOptions` property like this:
+## Bibliotecas
+Abaixo aponto as bibliotecas utilizadas e o motivo da escolha.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+* React-router-dom 7.1.2
+  > Controle de rotas.
+* Vite 
+  > O uso do Vite foi definido pela sua velocidade de build a frente de outras ferramenta como webpack.
+* Material UI 6.4.0
+  > Material UI facilita a criação de interfaces com seus componentes e estilos predefinidos, tenho familiaridade em trabalhar com ele e decidi aplicar nesse projeto.
+* Axios 1.7.9
+  > Em projetos pessoais utilizo bastante `Fetch API`, mas em projetos react vejo muito as pessoas utilizando `axios` então decidi por utilizá-lo.
+
+## IDE
+* Visual Studio Code
+* Puglin Codeium:
+  > Ferramenta aceleradora de desenvolvimento, IA Generativa similar ao Copilot do Github.
+
+## Versionador
+* Git CLI
+* Serviço Github
+
+## Reproduzir
+Siga os passos a seguir para reproduzir a execução da API.
+
+* Instalação de pacotes.
+```sh
+npm install
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+* Inicializar o servidor.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```sh
+npm run dev
 ```
+
+# Acesso
+Entre no link abaixo para ver a aplicação.
+> http://localhost:5173/card
