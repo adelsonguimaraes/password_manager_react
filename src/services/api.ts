@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { Card } from '../types';
+import { SeverityEnum } from '../contexts/SnackbarContext';
 
 const BASE_URL = 'http://localhost:3000';
 
@@ -13,7 +14,7 @@ export const fetchCards = async (filter = ''): Promise<Card[]> => {
     }
 }
 
-export const saveOrUpdateCard = async (card: Card) => {
+export const saveOrUpdateCard = async (card: Card, showSnackbar: (message: string, severity: SeverityEnum) => void) => {
     try {
         let response;
         if (card.id) {
@@ -23,7 +24,11 @@ export const saveOrUpdateCard = async (card: Card) => {
         }
         return response.data;
     } catch (error) {
-        console.error('Error saving or updating card:', error);
+        if (axios.isAxiosError(error) && error.response?.data?.error) {
+            showSnackbar(error.response.data.error, SeverityEnum.Error);
+        } else {
+            showSnackbar('Error to save or update card!', SeverityEnum.Error);
+        }
         throw new Error('Error to save or update card.');
     }
 };

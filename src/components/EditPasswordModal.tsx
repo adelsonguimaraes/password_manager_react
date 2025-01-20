@@ -6,6 +6,8 @@ import { saveOrUpdateCard } from '../services/api';
 import { Card } from '../types';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import { useSnackbar, SeverityEnum } from '../contexts/SnackbarContext';
+import { usePasswordForm } from '../hooks/usePasswordForm';
+
 
 
 interface EditPasswordModalProps {
@@ -16,49 +18,14 @@ interface EditPasswordModalProps {
 }
 
 const EditPasswordModal = ({ open, onClose, onSave, initialData }: EditPasswordModalProps) => {
-    const [formData, setFormData] = useState<Card>(
-        {
-            id: '',
-            url: '',
-            name: '',
-            username: '',
-            password: '',
-        }
-    );
-
     const [showPassword, setShowPassword] = useState(false);
-
     const { showSnackbar } = useSnackbar();
 
-    useEffect(() => {
-        if (open) {
-            setFormData({
-                id: initialData ? initialData.id : '',
-                url: initialData ? initialData.url : '',
-                name: initialData ? initialData.name : '',
-                username: initialData ? initialData.username : '',
-                password: initialData ? initialData.password : '',
-            });
-        }
-    }, [open]);
+    const { formData, handleChange, handleSubmit } = usePasswordForm(initialData);
 
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target;
-        setFormData((prev) => ({
-            ...prev,
-            [name]: value,
-        }));
-    };
 
     const handleTogglePasswordVisibility = () => {
         setShowPassword((prev) => !prev);
-    };
-
-    const handleSubmit = async () => {
-        await saveOrUpdateCard(formData);
-        showSnackbar('Data saved successfully!', SeverityEnum.Success);
-        onSave();
     };
 
     const handleCopyPassword = () => {
